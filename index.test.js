@@ -10,14 +10,24 @@ describe('[Exercise 1] trimProperties', () => {
   })
   
   test('[2] returns a copy, leaving the original object intact', () => {
-    let trimmedObj = utils.trimProperties({ foo: '  foo  ', bar: ' bar ', baz: '   baz   ' });
+    let originalObj = { foo: '  foo  ', bar: ' bar ', baz: '   baz   ' }
+    let trimmedObj = utils.trimProperties(originalObj);
     expect(trimmedObj).toStrictEqual({ foo: 'foo', bar: 'bar', baz: 'baz' });
   })
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
-  // test('[3] returns an object with the properties trimmed', () => {})
-  // test('[4] the object returned is the exact same one we passed in', () => {})
+  test('[3] returns an object with the properties trimmed', () => {
+    let originalObj = { foo: '  foo  ', bar: ' bar ', baz: '   baz   ' }
+    let trimmedObj = utils.trimPropertiesMutation(originalObj);
+    expect(trimmedObj).toStrictEqual({ foo: 'foo', bar: 'bar', baz: 'baz' });
+  })
+
+  test('[4] the object returned is the exact same one we passed in', () => {
+    let originalObj = { foo: '  foo  ', bar: ' bar ', baz: '   baz   ' }
+    let trimmedObj = utils.trimPropertiesMutation(originalObj);
+    expect(trimmedObj).toStrictEqual({ foo: 'foo', bar: 'bar', baz: 'baz' });
+  })
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
@@ -72,76 +82,37 @@ describe('[Exercise 5] Seasons', () => {
   })
 
   test('[10] the SECOND call of seasons.next returns "fall"', () => {
-    seasons.next();
-    seasons.next();
+    for (let i = 0; i < 2; i++) {
+      seasons.next();
+    }
     expect(seasons.currentSeason).toBe('fall');
   })
 
   test('[11] the THIRD call of seasons.next returns "winter"', () => {
-    seasons.next();
-    seasons.next();
-    seasons.next();
+    for (let i = 0; i < 3; i++) {
+      seasons.next();
+    }
     expect(seasons.currentSeason).toBe('winter');
   })
 
   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
+    for (let i = 0; i < 4; i++) {
+      seasons.next();
+    }
     expect(seasons.currentSeason).toBe('spring');
   })
 
   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
+    for (let i = 0; i < 5; i++) {
+      seasons.next();
+    }
     expect(seasons.currentSeason).toBe('summer');
   })
 
   test('[14] the 40th call of seasons.next returns "spring"', () => {
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
-    seasons.next();
+    for (let i = 0; i < 40; i++) {
+      seasons.next();
+    }
     expect(seasons.currentSeason).toBe('spring');
   })
 })
@@ -178,7 +149,12 @@ describe('[Exercise 6] Car', () => {
   })
 })
 
-// describe('[Exercise 7] isEvenNumberAsync', () => {
-//   // test('[19] resolves true if passed an even number', () => {})
-//   // test('[20] resolves false if passed an odd number', () => {})
-// })
+describe('[Exercise 7] isEvenNumberAsync', () => {
+  test('[19] resolves true if passed an even number', () => {
+    utils.isEvenNumberAsync(2);
+  })
+
+  test('[20] resolves false if passed an odd number', () => {
+    utils.isEvenNumberAsync(3);
+  })
+})

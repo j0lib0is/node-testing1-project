@@ -7,12 +7,12 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  const object = {
+  const trimmed = {
     foo: obj.foo.trim(),
     bar: obj.bar.trim(),
     baz: obj.baz.trim()
   };
-  return object;
+  return trimmed;
 }
 
 /**
@@ -24,12 +24,12 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  const object = {
+  const trimmed = {
     foo: obj.foo.trim(),
     bar: obj.bar.trim(),
     baz: obj.baz.trim()
   };
-  return object;
+  return trimmed;
 }
 
 /**
@@ -187,7 +187,11 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  // ✨ implement
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = {
