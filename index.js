@@ -82,7 +82,11 @@ class Counter {
       return this.initialNumber;
     } else {
       this.callCounter += 1;
-      return this.initialNumber -= 1;
+      if (this.initialNumber === 0) {
+        return 0;
+      } else {
+        return this.initialNumber -= 1;
+      }
     }
   }
 }
@@ -127,9 +131,9 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0; // car initilizes with zero miles
-    this.tank = tankSize; // car initiazes full of gas
-    this.fuel = tankSize;
+    this.odometer = 0; // car initializes with zero miles
+    this.tank = tankSize; // car initializes full of gas
+    this.tankSize = tankSize;
     this.mpg = mpg;
   }
 
@@ -150,7 +154,7 @@ class Car {
     this.odometer += distance;
     
     let gallonsBurned = distance / this.mpg;
-    this.fuel -= gallonsBurned;
+    this.tank -= gallonsBurned;
 
     return this.odometer;
   }
@@ -167,10 +171,10 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    if (gallons > (this.tank - this.fuel)) {
-      this.fuel = this.tank;
+    if (gallons > (this.tankSize - this.tank)) {
+      this.tank = this.tankSize;
     } else {
-      this.fuel += gallons;
+      this.tank += gallons;
     }
   }
 }
