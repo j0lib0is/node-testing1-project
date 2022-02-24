@@ -12,6 +12,7 @@ function trimProperties(obj) {
     bar: obj.bar.trim(),
     baz: obj.baz.trim()
   };
+  
   return trimmed;
 }
 
@@ -24,12 +25,11 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  const trimmed = {
-    foo: obj.foo.trim(),
-    bar: obj.bar.trim(),
-    baz: obj.baz.trim()
-  };
-  return trimmed;
+  obj.foo = obj.foo.trim();
+  obj.bar = obj.bar.trim();
+  obj.baz = obj.baz.trim();
+
+  return obj;
 }
 
 /**
