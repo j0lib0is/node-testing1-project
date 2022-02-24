@@ -187,10 +187,14 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  if (number % 2 === 0) {
-    return true;
-  } else {
-    return false;
+  try {
+    if (number % 2 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch(err) {
+    console.error(err);
   }
 }
 

@@ -56,16 +56,16 @@ describe('[Exercise 4] Counter', () => {
   })
   
   test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
-    counter.countDown();
-    counter.countDown();
+    for (let i = 0; i < 2; i++) {
+      counter.countDown();
+    }
     expect(counter.initialNumber).toBe(2);
   })
 
   test('[8] the count eventually reaches zero but does not go below zero', () => {
-    counter.countDown();
-    counter.countDown();
-    counter.countDown();
-    counter.countDown();
+    for (let i = 0; i < 4; i++) {
+      counter.countDown();
+    }
     expect(counter.initialNumber).toBe(0);
   })
 })
@@ -151,10 +151,12 @@ describe('[Exercise 6] Car', () => {
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
   test('[19] resolves true if passed an even number', () => {
-    utils.isEvenNumberAsync(2);
+    const evenNumber = utils.isEvenNumberAsync(2);
+    expect(evenNumber).toBe(true);
   })
 
   test('[20] resolves false if passed an odd number', () => {
-    utils.isEvenNumberAsync(3);
+    const evenNumber = utils.isEvenNumberAsync(3);
+    expect(evenNumber).toBe(false);
   })
 })
